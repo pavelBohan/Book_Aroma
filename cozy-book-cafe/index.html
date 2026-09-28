@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Книжный аромат: История одного кафе</title>
+  <meta name="description" content="Уютный симулятор книжного кафе в эстетике Dark Academia — упрощённый, в духе Papa Louie." />
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- Шапка с ресурсами -->
+    <header id="hud" class="hidden">
+      <span class="logo">📖☕ Книжный аромат</span>
+      <span id="hud-day" class="stat">Глава 1 из 5</span>
+      <span class="spacer"></span>
+      <span class="stat" title="Основная валюта">🫘 <b id="hud-beans">0</b></span>
+      <span class="stat" title="Премиум-валюта">⭐ <b id="hud-reviews">0</b></span>
+      <span class="stat" title="Шкала уюта">☘ <span class="unity-bar"><span id="unity-fill" style="display:block;width:25%"></span></span></span>
+    </header>
+
+    <!-- ГЛАВНОЕ МЕНЮ -->
+    <section id="menu-screen">
+      <div class="menu-card">
+        <svg class="cup" viewBox="0 0 100 100" aria-hidden="true">
+          <!-- чашка -->
+          <path d="M28 56 h44 v16 a22 22 0 0 1 -44 0 z" fill="#6b4226" stroke="#c9a227" stroke-width="2.5"/>
+          <path d="M72 58 h9 a7 7 0 0 1 0 14 h-7" fill="none" stroke="#c9a227" stroke-width="3"/>
+          <!-- пар в виде раскрытой книги -->
+          <path d="M36 44 q14 -12 14 -20 q0 8 14 20" fill="none" stroke="#ecdcb9" stroke-width="2.5" opacity=".9"/>
+          <path d="M50 24 v-14 M50 10 l-9 -4 v12 z M50 10 l9 -4 v12 z" fill="#c9a227" stroke="#c9a227" stroke-width="1"/>
+          <!-- блюдце -->
+          <ellipse cx="50" cy="80" rx="30" ry="5" fill="#3b2417" opacity=".6"/>
+        </svg>
+        <h1>Книжный аромат</h1>
+        <p class="subtitle">История одного кафе</p>
+        <p class="desc">
+          Вы — бывший бариста и библиотекарь в одном лице. Превратите пустое помещение
+          в самое уютное место города: варите кофе, вдохновлённый великими писателями,
+          подбирайте «Ароматы» для гостей и собирайте библиотеку. Пять глав — одна история.
+        </p>
+        <button class="btn primary" id="new-game-btn">Новая глава ✒️</button>
+        <button class="btn" id="continue-btn">Начать чтение 🔖</button>
+        <button class="btn small" id="howto-btn">Как играть 📜</button>
+      </div>
+    </section>
+
+    <!-- ИГРОВОЙ ЭКРАН -->
+    <main id="game-screen" class="hidden">
+      <!-- Кафе (2.5D-сцена) -->
+      <section id="cafe-view">
+        <span class="lamp" style="left:12%">💡</span>
+        <span class="lamp" style="right:12%;animation-delay:1.5s">💡</span>
+        <div class="wall-art" id="wall-art"></div>
+        <div id="book-of-day"></div>
+        <div class="shelf-row" id="shelf-row"></div>
+        <div id="customer-slot" class="gone">☕</div>
+        <div class="counter"><div id="counter-props" style="display:flex;gap:18px;align-items:center"></div></div>
+      </section>
+
+      <!-- Панель действий (страницы «книги-меню») -->
+      <aside id="action-panel"></aside>
+    </main>
+
+    <!-- ФИНАЛ -->
+    <section id="end-screen" class="hidden">
+      <div class="menu-card" id="end-card"></div>
+    </section>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
